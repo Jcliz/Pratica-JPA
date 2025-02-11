@@ -12,15 +12,13 @@ public class AlterarUsuario3 {
                 .createEntityManagerFactory("projeto-jpa");
         EntityManager em = emf.createEntityManager();
 
-        em.getTransaction().begin();
-
         Usuario usuario = em.find(Usuario.class, 3L);
-        usuario.setNome("Jane");
 
-        em.detach(usuario);
-        em.merge(usuario);
-
-        em.getTransaction().commit();
+        if (usuario != null) {
+            em.getTransaction().begin();
+            em.remove(usuario);
+            em.getTransaction().commit();
+        }
 
         em.close();
         emf.close();
