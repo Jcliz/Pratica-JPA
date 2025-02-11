@@ -1,12 +1,15 @@
 package modelo.basico;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Usuario {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
@@ -17,8 +20,7 @@ public class Usuario {
 
     }
 
-    public Usuario(Long id, String nome, String email) {
-        this.id = id;
+    public Usuario(String nome, String email) {
         this.nome = nome;
         this.email = email;
     }
