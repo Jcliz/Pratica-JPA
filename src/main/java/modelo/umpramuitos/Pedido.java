@@ -14,7 +14,7 @@ public class Pedido {
     private Date data;
 
     public Pedido() {
-
+        this(new Date());
     }
 
     public Pedido(Date data) {
