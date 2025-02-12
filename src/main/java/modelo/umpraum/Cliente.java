@@ -12,6 +12,7 @@ public class Cliente {
     private String nome;
 
     @OneToOne
+    @JoinColumn(name = "assento_id", unique = true)
     private Assento assento;
 
     public Cliente() {
