@@ -5,9 +5,9 @@
                  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
                                      http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd">
 
-    <named-query name="filmesNotaMaiorQue">
+    <named-query name="obterFilmesComNotaMaiorQue">
         <query>
-            SELECT f FROM Filme f
+            SELECT DISTINCT f FROM Filme f
             JOIN FETCH f.atores
             WHERE f.nota > :nota
         </query>

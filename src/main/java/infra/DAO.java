@@ -1,5 +1,7 @@
 package infra;
 
+import org.hibernate.type.ObjectType;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -66,6 +68,16 @@ public class DAO<E> {
         TypedQuery<E> query = em.createQuery(jpql, classe);
         query.setMaxResults(qtde);
         query.setFirstResult(deslocamento);
+        return query.getResultList();
+    }
+
+    public List<E> consultar(String nomeConsulta, Object... params) {
+        TypedQuery<E> query = em.createNamedQuery(nomeConsulta, classe);
+
+        for (int i = 0; i < params.length; i += 2) {
+                query.setParameter(params[i].toString(), params[i + 1]);
+        }
+
         return query.getResultList();
     }
 
