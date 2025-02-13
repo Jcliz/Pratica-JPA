@@ -16,7 +16,7 @@ public class Filme {
 
     private Double nota;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "atores_filmes",
             joinColumns = @JoinColumn(name = "filme_id", referencedColumnName = "id"),

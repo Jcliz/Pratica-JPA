@@ -14,7 +14,7 @@ public class Ator {
 
     private String nome;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "atores", cascade = CascadeType.PERSIST)
     private List<Filme> filmes =  new ArrayList<>();
 
     public Ator() {
